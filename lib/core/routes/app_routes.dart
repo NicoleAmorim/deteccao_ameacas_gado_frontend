@@ -3,7 +3,9 @@ import '../../features/monitoramento/presentation/pages/cameraPage.dart';
 import '../../features/monitoramento/presentation/pages/homePage.dart';
 import '../../features/monitoramento/presentation/pages/loginPage.dart';
 import '../../features/monitoramento/presentation/pages/SignInPage.dart';
+import '../../features/monitoramento/presentation/pages/morePage.dart';
 import '../../features/monitoramento/presentation/pages/notificationsPage.dart';
+import '../../features/monitoramento/presentation/pages/plansPage.dart';
 import '../../features/monitoramento/presentation/pages/profilePage.dart';
 import '../../features/monitoramento/presentation/pages/recordingsPage.dart';
 
@@ -15,4 +17,7 @@ final appRoutes = <String, WidgetBuilder>{
   '/notificacoes': (context) => const NotificationsPage(),
   '/perfil': (context) => const ProfilePage(),
   '/adicionar-perfil': (context) => const SignInPage(),
+  '/mais': (context) => const MorePage(),
+  '/plans': (context) => const PlansPage(),
+
 };

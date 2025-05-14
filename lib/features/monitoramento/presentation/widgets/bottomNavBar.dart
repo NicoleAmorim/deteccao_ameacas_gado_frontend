@@ -13,6 +13,7 @@ class BottomNavBar extends StatelessWidget {
         BottomNavigationBarItem(icon: Icon(Icons.video_library), label: 'Gravações'),
         BottomNavigationBarItem(icon: Icon(Icons.notifications), label: 'Notificações'),
         BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Perfil'),
+        BottomNavigationBarItem(icon: Icon(Icons.more_horiz), label: 'Mais'),
       ],
       onTap: (index) {
         switch (index) {
@@ -30,6 +31,9 @@ class BottomNavBar extends StatelessWidget {
             break;
           case 4:
             Navigator.pushReplacementNamed(context, '/perfil');
+            break;
+          case 5:
+            Navigator.pushReplacementNamed(context, '/mais');
             break;
         }
       },

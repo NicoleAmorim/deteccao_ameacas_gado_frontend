@@ -1,5 +1,5 @@
-name: frontend_tcc
-description: "A new Flutter project."
+name: cow_rec
+description: "Monitoramento de Rebanho."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -30,6 +30,7 @@ environment:
 dependencies:
   camera: ^0.10.5+9
   permission_handler: ^11.0.0
+  intl: ^0.18.1
   flutter:
     sdk: flutter
 
