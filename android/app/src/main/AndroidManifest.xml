@@ -7,7 +7,7 @@
     <application
         android:requestLegacyExternalStorage="true"
         android:usesCleartextTraffic="true"
-        android:label="frontend_tcc"
+        android:label="Cow Rec"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

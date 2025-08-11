@@ -6,7 +6,12 @@ class SignInPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Adicionar Perfil')),
+      appBar: AppBar(
+        title: const Text(
+          'Adicionar Perfil',
+          style: TextStyle(color: Colors.white),
+        ),
+      ),
       body: const Center(child: Text('Formulário fake para adicionar perfil')),
     );
   }

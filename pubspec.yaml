@@ -1,4 +1,4 @@
-name: cow_rec
+name: frontend_tcc
 description: "Monitoramento de Rebanho."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -67,6 +67,7 @@ flutter:
   #   - images/a_dot_ham.jpeg
   assets:
     - assets/images/icon_logo.png
+    - assets/images/example_camera_frame.jpeg
 
 flutter_launcher_icons:
   image_path: "assets/images/icon_logo.png"  # Caminho da imagem da sua logo

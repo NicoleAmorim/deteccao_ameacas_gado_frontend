@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:intl/intl.dart';
 import '../widgets/bottomNavBar.dart';
 
 class HomePage extends StatelessWidget {
@@ -7,29 +7,20 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const darkGreen = Color(0xFF1B5E20);
+    const Color darkGreen = Color(0xFF1B5E20);
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
+        backgroundColor: darkGreen,
         title: const Text(
           'Minha casa',
-          style: TextStyle(
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
-            fontSize: 24,
-          ),
+          style: TextStyle(color: Colors.white),
         ),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.search, color: Colors.black),
-            onPressed: () {},
-          ),
-          IconButton(
-            icon: const Icon(Icons.add_circle_outline, color: Colors.black),
-            onPressed: () {},
-          ),
+        actions: const [
+          Icon(Icons.search, color: Colors.white),
+          SizedBox(width: 12),
+          Icon(Icons.add, color: Colors.white),
+          SizedBox(width: 16),
         ],
       ),
       body: SingleChildScrollView(
@@ -37,31 +28,19 @@ class HomePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Banner
-            Container(
-              width: double.infinity,
-              height: 100,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12),
-                image: const DecorationImage(
-                  image: AssetImage('assets/images/icon_logo.png'),
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
+            
             const SizedBox(height: 16),
 
-            // Selecione suas cenas preferidas
+            // Área "Selecione suas cenas preferidas"
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+              padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Colors.grey[100],
                 borderRadius: BorderRadius.circular(12),
-                border: Border.all(color: Colors.grey.shade300),
               ),
               child: Row(
                 children: const [
-                  Icon(Icons.dashboard_customize, color: darkGreen),
+                  Icon(Icons.dashboard_customize_outlined, color: darkGreen),
                   SizedBox(width: 12),
                   Expanded(
                     child: Text(
@@ -69,62 +48,78 @@ class HomePage extends StatelessWidget {
                       style: TextStyle(fontSize: 16),
                     ),
                   ),
-                  Icon(Icons.arrow_forward_ios, size: 16),
+                  Icon(Icons.chevron_right),
                 ],
               ),
             ),
+
             const SizedBox(height: 24),
 
-            // Meus dispositivos
+            // Título
             const Text(
               'Meus dispositivos',
-              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
+
             const SizedBox(height: 12),
 
-            // Exemplo de dispositivo
-            Card(
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-              elevation: 4,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    padding: const EdgeInsets.all(12),
-                    child: const Text(
-                      'iMX C-85CD',
-                      style: TextStyle(fontWeight: FontWeight.bold),
+            // Imagem e data/hora
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Miniatura de vídeo/imagem
+                Container(
+                  width: 120,
+                  height: 90,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    image: const DecorationImage(
+                      image: AssetImage('assets/images/example_camera_frame.jpeg'), // Substituir pela imagem correta
+                      fit: BoxFit.cover,
                     ),
                   ),
-                  ClipRRect(
-                    borderRadius: const BorderRadius.only(
-                        bottomLeft: Radius.circular(16), bottomRight: Radius.circular(16)),
-                    child: Stack(
-                      alignment: Alignment.center,
-                      children: [
-                        Image.asset('assets/images/icon_logo.png'),
-                        const Icon(Icons.play_circle_fill, color: Colors.white, size: 48),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 24),
-
-            // Botão Meus Planos
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton.icon(
-                onPressed: () => Navigator.pushNamed(context, '/plans'),
-                icon: const Icon(Icons.subscriptions),
-                label: const Text('Ver Meus Planos'),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: darkGreen,
-                  padding: const EdgeInsets.symmetric(vertical: 14),
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                  textStyle: const TextStyle(fontSize: 16),
                 ),
+                const SizedBox(width: 12),
+
+                // Data e hora
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      DateFormat('dd/MM/yyyy').format(DateTime.now()),
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      DateFormat('HH:mm:ss').format(DateTime.now()),
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+
+            const SizedBox(height: 32),
+
+            // Texto informativo
+            Center(
+              child: Column(
+                children: const [
+                  Divider(),
+                  SizedBox(height: 8),
+                  Text(
+                    'Sem mais informações',
+                    style: TextStyle(color: Colors.grey),
+                  ),
+                  SizedBox(height: 8),
+                  Divider(),
+                ],
               ),
             ),
           ],

@@ -7,7 +7,12 @@ class RecordingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Gravações')),
+      appBar: AppBar(
+        title: const Text(
+            'Gravações',
+            style: TextStyle(color: Colors.white),
+          ),
+      ),
       body: const Center(child: Text('Lista de gravações (simulada)')),
       bottomNavigationBar: const BottomNavBar(),
     );

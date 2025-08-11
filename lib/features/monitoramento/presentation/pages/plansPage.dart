@@ -7,17 +7,17 @@ class PlansPage extends StatelessWidget {
     {
       'nome': 'Plano Básico',
       'descricao': 'Monitoramento de 1 câmera',
-      'imagem': 'assets/images/plano1.jpg',
+      'imagem': 'assets/images/example_camera_frame.jpeg',
     },
     {
       'nome': 'Plano Avançado',
       'descricao': 'Até 3 câmeras + alertas',
-      'imagem': 'assets/images/plano2.jpg',
+      'imagem': 'assets/images/example_camera_frame.jpeg',
     },
     {
       'nome': 'Plano Premium',
       'descricao': 'Todas as câmeras + gravação em nuvem',
-      'imagem': 'assets/images/plano3.jpg',
+      'imagem': 'assets/images/example_camera_frame.jpeg',
     },
   ];
 
@@ -27,7 +27,10 @@ class PlansPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Meus Planos'),
+        title: const Text(
+          'Meus Planos',
+          style: TextStyle(color: Colors.white),
+        ),
         backgroundColor: darkGreen,
       ),
       body: Padding(

@@ -10,7 +10,10 @@ class MorePage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Mais'),
+        title: const Text(
+          'Mais',
+          style: TextStyle(color: Colors.white),
+        ),
         backgroundColor: darkGreen,
       ),
       body: ListView(
