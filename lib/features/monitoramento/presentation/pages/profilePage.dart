@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:frontend_tcc/providers/registrationProvider.dart';
+import 'package:provider/provider.dart';
 import '../widgets/bottomNavBar.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -7,6 +9,7 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const Color darkGreen = Color(0xFF1B5E20);
+    final registrationProvider = Provider.of<RegistrationProvider>(context);
 
     return Scaffold(
       backgroundColor: Colors.grey[100],
@@ -42,7 +45,7 @@ class ProfilePage extends StatelessWidget {
                         icon: const Icon(Icons.edit,
                             color: Colors.white, size: 20),
                         onPressed: () {
-                          // Ação de editar foto
+                          // Futuramente: abrir seleção de imagem
                         },
                       ),
                     ),
@@ -51,7 +54,7 @@ class ProfilePage extends StatelessWidget {
               ),
               const SizedBox(height: 24),
 
-              // Nome do dispositivo
+              // Nome do dispositivo (fixo por enquanto)
               Row(
                 children: [
                   const Expanded(
@@ -80,11 +83,31 @@ class ProfilePage extends StatelessWidget {
               ),
               const SizedBox(height: 32),
 
-              // Informações básicas
-              _buildInfoTile('Nome completo', 'João da Silva'),
-              _buildInfoTile('CPF', '000.000.000-00'),
-              _buildInfoTile('Telefone', '(11) 91234-5678'),
-              _buildInfoTile('Senha', '••••••••'),
+              // Informações básicas vindas do provider
+              _buildInfoTile(
+                'Nome completo',
+                registrationProvider.registration.fullName.isNotEmpty
+                    ? registrationProvider.registration.fullName
+                    : 'Não informado',
+              ),
+              _buildInfoTile(
+                'CPF',
+                registrationProvider.registration.cardHolderCpf.isNotEmpty
+                    ? registrationProvider.registration.cardHolderCpf
+                    : 'Não informado',
+              ),
+              _buildInfoTile(
+                'Telefone',
+                registrationProvider.registration.phone.isNotEmpty
+                    ? registrationProvider.registration.phone
+                    : 'Não informado',
+              ),
+              _buildInfoTile(
+                'Senha',
+                registrationProvider.registration.password.isNotEmpty
+                    ? '••••••••'
+                    : 'Não informado',
+              ),
 
               const SizedBox(height: 32),
 

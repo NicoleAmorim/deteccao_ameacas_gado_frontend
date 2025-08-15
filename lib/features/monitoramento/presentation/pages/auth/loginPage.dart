@@ -58,6 +58,12 @@ class LoginPage extends StatelessWidget {
                     child: const Text('Entrar (Fake Login)'),
                   ),
                 ),
+                
+              const SizedBox(height: 12),
+              TextButton(
+                onPressed: () => Navigator.pushNamed(context, '/register/step1'),
+                child: const Text('Cadastre-se'),
+              ),
               ],
             ),
           ),
