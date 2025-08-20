@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:frontend_tcc/features/monitoramento/presentation/pages/aboutPage.dart';
 import 'package:frontend_tcc/features/monitoramento/presentation/pages/auth/loginPage.dart';
 import 'package:frontend_tcc/features/monitoramento/presentation/pages/auth/registration/step1PersonalData.dart';
-import 'package:frontend_tcc/features/monitoramento/presentation/pages/auth/registration/step2PlanSelection.dart';
-import 'package:frontend_tcc/features/monitoramento/presentation/pages/auth/registration/step3Payment.dart';
-import 'package:frontend_tcc/features/monitoramento/presentation/pages/auth/registration/step4CameraRegistration.dart';
-import 'package:frontend_tcc/features/monitoramento/presentation/pages/auth/registration/step5CameraSelection.dart';
-import 'package:frontend_tcc/features/monitoramento/presentation/pages/auth/registration/step6Review.dart';
+import 'package:frontend_tcc/features/monitoramento/presentation/pages/auth/registration/step2CameraRegistration.dart';
+import 'package:frontend_tcc/features/monitoramento/presentation/pages/auth/registration/step3Review.dart';
+import 'package:frontend_tcc/features/monitoramento/presentation/pages/auth/resetPassword.dart';
+import 'package:frontend_tcc/features/monitoramento/presentation/pages/contactPage.dart';
+import 'package:frontend_tcc/features/monitoramento/presentation/pages/supportPage.dart';
 import '../../features/monitoramento/presentation/pages/cameraPage.dart';
 import '../../features/monitoramento/presentation/pages/homePage.dart';
 import '../../features/monitoramento/presentation/pages/SignInPage.dart';
 import '../../features/monitoramento/presentation/pages/morePage.dart';
 import '../../features/monitoramento/presentation/pages/notificationsPage.dart';
-import '../../features/monitoramento/presentation/pages/plansPage.dart';
 import '../../features/monitoramento/presentation/pages/profilePage.dart';
 import '../../features/monitoramento/presentation/pages/recordingsPage.dart';
 
@@ -24,12 +24,12 @@ final appRoutes = <String, WidgetBuilder>{
   '/perfil': (context) => const ProfilePage(),
   '/adicionar-perfil': (context) => const SignInPage(),
   '/mais': (context) => const MorePage(),
-  '/plans': (context) => const PlansPage(),
   '/register/step1': (context) => const RegisterStep1Personal(),
-  '/register/step2': (context) => const RegisterStep2Plan(),
-  '/register/step3': (context) => const RegisterStep3Payment(),
-  '/register/step4': (context) => const RegisterStep4Camera(),
-  '/register/step5': (context) => const RegisterStep5Selection(),
-  '/register/step6': (context) => const RegisterStep6Review(),
+  '/register/step2': (context) => const RegisterStep2Camera(),
+  '/register/step3': (context) => const RegisterStep3Review(),
+  '/reset-password': (context) => const ResetPasswordPage(),
+  '/suporte': (context) => const SupportPage(),
+  '/contato': (context) => const ContactPage(),
+  '/sobre': (context) => const AboutPage(),
 
 };

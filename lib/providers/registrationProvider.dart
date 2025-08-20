@@ -9,58 +9,30 @@ class RegistrationProvider extends ChangeNotifier {
   RegistrationModel registration = RegistrationModel();
   bool loading = false;
 
-  // plan camera limits
-  int getPlanLimit(String plan) {
-    switch (plan) {
-      case 'basic':
-        return 1;
-      case 'advanced':
-        return 3;
-      case 'premium':
-        return 999;
-      default:
-        return 1;
-    }
-  }
-
   void updatePersonal({
     required String fullName,
+    required String cpf,
     required String phone,
     required String email,
     required String password,
-    required String address,
+    required String cep,
+    required String street,
+    required String number,
+    required String neighborhood,
+    required String city,
+    required String uf,
   }) {
     registration.fullName = fullName;
+    registration.cpf = cpf;
     registration.phone = phone;
     registration.email = email;
     registration.password = password;
-    registration.address = address;
-    notifyListeners();
-  }
-
-  void updatePlan(String plan) {
-    registration.plan = plan;
-    // ensure selected cameras fit limit
-    final limit = getPlanLimit(plan);
-    if (registration.selectedCameraIds.length > limit) {
-      registration.selectedCameraIds =
-          registration.selectedCameraIds.sublist(0, limit);
-    }
-    notifyListeners();
-  }
-
-  void updatePayment({
-    required String cardNumber,
-    required String cardExpiry,
-    required String cardCvv,
-    required String cardHolderName,
-    required String cardHolderCpf,
-  }) {
-    registration.cardNumber = cardNumber;
-    registration.cardExpiry = cardExpiry;
-    registration.cardCvv = cardCvv;
-    registration.cardHolderName = cardHolderName;
-    registration.cardHolderCpf = cardHolderCpf;
+    registration.cep = cep;
+    registration.street = street;
+    registration.number = number;
+    registration.neighborhood = neighborhood;
+    registration.city = city;
+    registration.uf = uf;
     notifyListeners();
   }
 
@@ -71,19 +43,6 @@ class RegistrationProvider extends ChangeNotifier {
 
   void removeCamera(String cameraId) {
     registration.cameras.removeWhere((c) => c.id == cameraId);
-    registration.selectedCameraIds.remove(cameraId);
-    notifyListeners();
-  }
-
-  void selectCamera(String cameraId) {
-    final limit = getPlanLimit(registration.plan);
-    if (registration.selectedCameraIds.contains(cameraId)) {
-      registration.selectedCameraIds.remove(cameraId);
-    } else {
-      if (registration.selectedCameraIds.length < limit) {
-        registration.selectedCameraIds.add(cameraId);
-      }
-    }
     notifyListeners();
   }
 

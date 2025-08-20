@@ -3,78 +3,67 @@ import 'cameraModel.dart';
 
 class RegistrationModel {
   String fullName;
+  String cpf;
   String phone;
   String email;
   String password;
-  String address;
-
-  String plan; // 'basic' | 'advanced' | 'premium'
-
-  // payment
-  String cardNumber;
-  String cardExpiry;
-  String cardCvv;
-  String cardHolderName;
-  String cardHolderCpf;
-
-  List<CameraModel> cameras; // registered cameras
-  List<String> selectedCameraIds; // ids selected for plan usage
+  String cep;
+  String street;
+  String number;
+  String neighborhood;
+  String city;
+  String uf;
+  List<CameraModel> cameras;
 
   RegistrationModel({
     this.fullName = '',
+    this.cpf = '',
     this.phone = '',
     this.email = '',
     this.password = '',
-    this.address = '',
-    this.plan = 'basic',
-    this.cardNumber = '',
-    this.cardExpiry = '',
-    this.cardCvv = '',
-    this.cardHolderName = '',
-    this.cardHolderCpf = '',
+    this.cep = '',
+    this.street = '',
+    this.number = '',
+    this.neighborhood = '',
+    this.city = '',
+    this.uf = '',
     List<CameraModel>? cameras,
-    List<String>? selectedCameraIds,
-  })  : cameras = cameras ?? [],
-        selectedCameraIds = selectedCameraIds ?? [];
+  }) : cameras = cameras ?? [];
 
   Map<String, dynamic> toMap() {
     return {
       'fullName': fullName,
+      'cpf': cpf,
       'phone': phone,
       'email': email,
       'password': password,
-      'address': address,
-      'plan': plan,
-      'cardNumber': cardNumber,
-      'cardExpiry': cardExpiry,
-      'cardCvv': cardCvv,
-      'cardHolderName': cardHolderName,
-      'cardHolderCpf': cardHolderCpf,
+      'cep': cep,
+      'street': street,
+      'number': number,
+      'neighborhood': neighborhood,
+      'city': city,
+      'uf': uf,
       'cameras': cameras.map((c) => c.toMap()).toList(),
-      'selectedCameraIds': selectedCameraIds,
     };
   }
 
   factory RegistrationModel.fromMap(Map<String, dynamic> map) {
     return RegistrationModel(
       fullName: map['fullName'] ?? '',
+      cpf: map['cpf'] ?? '',
       phone: map['phone'] ?? '',
       email: map['email'] ?? '',
       password: map['password'] ?? '',
-      address: map['address'] ?? '',
-      plan: map['plan'] ?? 'basic',
-      cardNumber: map['cardNumber'] ?? '',
-      cardExpiry: map['cardExpiry'] ?? '',
-      cardCvv: map['cardCvv'] ?? '',
-      cardHolderName: map['cardHolderName'] ?? '',
-      cardHolderCpf: map['cardHolderCpf'] ?? '',
+      cep: map['cep'] ?? '',
+      street: map['street'] ?? '',
+      number: map['number'] ?? '',
+      neighborhood: map['neighborhood'] ?? '',
+      city: map['city'] ?? '',
+      uf: map['uf'] ?? '',
       cameras: map['cameras'] != null
           ? List<Map<String, dynamic>>.from(map['cameras'])
               .map((m) => CameraModel.fromMap(m))
               .toList()
-          : [],
-      selectedCameraIds: map['selectedCameraIds'] != null
-          ? List<String>.from(map['selectedCameraIds'])
           : [],
     );
   }

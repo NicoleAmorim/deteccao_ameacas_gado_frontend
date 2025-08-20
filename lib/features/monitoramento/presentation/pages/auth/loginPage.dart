@@ -5,6 +5,8 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const darkGreen = Color(0xFF1B5E20);
+
     return Scaffold(
       body: Center(
         child: Padding(
@@ -13,41 +15,50 @@ class LoginPage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // Imagem centralizada
                 Image.asset(
-                  'assets/images/icon_logo.png', // Caminho corrigido
+                  'assets/images/icon_logo.png',
                   height: 350,
                 ),
                 const SizedBox(height: 30),
-
-                // Campo de login
                 TextField(
                   decoration: InputDecoration(
                     labelText: 'Login',
+                    labelStyle: const TextStyle(color: darkGreen),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),
+                    prefixIcon: const Icon(Icons.person, color: darkGreen),
                   ),
                 ),
                 const SizedBox(height: 16),
-
-                // Campo de senha
                 TextField(
                   obscureText: true,
                   decoration: InputDecoration(
                     labelText: 'Senha',
+                    labelStyle: const TextStyle(color: darkGreen),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),
+                    prefixIcon: const Icon(Icons.lock, color: darkGreen),
                   ),
                 ),
-                const SizedBox(height: 24),
-
-                // Botão de login
+                const SizedBox(height: 8),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: TextButton(
+                    onPressed: () => Navigator.pushNamed(context, '/reset-password'),
+                    child: const Text(
+                      'Esqueci minha senha',
+                      style: TextStyle(color: darkGreen, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 16),
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
+                      backgroundColor: darkGreen,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),
                       ),
@@ -55,15 +66,14 @@ class LoginPage extends StatelessWidget {
                     ),
                     onPressed: () =>
                         Navigator.pushReplacementNamed(context, '/home'),
-                    child: const Text('Entrar (Fake Login)'),
+                    child: const Text('Entrar (Fake Login)', style: TextStyle(color: Colors.white)),
                   ),
                 ),
-                
-              const SizedBox(height: 12),
-              TextButton(
-                onPressed: () => Navigator.pushNamed(context, '/register/step1'),
-                child: const Text('Cadastre-se'),
-              ),
+                const SizedBox(height: 12),
+                TextButton(
+                  onPressed: () => Navigator.pushNamed(context, '/register/step1'),
+                  child: const Text('Cadastre-se', style: TextStyle(color: darkGreen)),
+                ),
               ],
             ),
           ),

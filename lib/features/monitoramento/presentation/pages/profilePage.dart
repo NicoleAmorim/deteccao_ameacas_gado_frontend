@@ -92,14 +92,56 @@ class ProfilePage extends StatelessWidget {
               ),
               _buildInfoTile(
                 'CPF',
-                registrationProvider.registration.cardHolderCpf.isNotEmpty
-                    ? registrationProvider.registration.cardHolderCpf
+                registrationProvider.registration.cpf.isNotEmpty
+                    ? registrationProvider.registration.cpf
                     : 'Não informado',
               ),
               _buildInfoTile(
                 'Telefone',
                 registrationProvider.registration.phone.isNotEmpty
                     ? registrationProvider.registration.phone
+                    : 'Não informado',
+              ),
+              _buildInfoTile(
+                'E-mail',
+                registrationProvider.registration.email.isNotEmpty
+                    ? registrationProvider.registration.email
+                    : 'Não informado',
+              ),
+              _buildInfoTile(
+                'CEP',
+                registrationProvider.registration.cep.isNotEmpty
+                    ? registrationProvider.registration.cep
+                    : 'Não informado',
+              ),
+              _buildInfoTile(
+                'Rua',
+                registrationProvider.registration.street.isNotEmpty
+                    ? registrationProvider.registration.street
+                    : 'Não informado',
+              ),
+              _buildInfoTile(
+                'Número',
+                registrationProvider.registration.number.isNotEmpty
+                    ? registrationProvider.registration.number
+                    : 'Não informado',
+              ),
+              _buildInfoTile(
+                'Bairro',
+                registrationProvider.registration.neighborhood.isNotEmpty
+                    ? registrationProvider.registration.neighborhood
+                    : 'Não informado',
+              ),
+              _buildInfoTile(
+                'Cidade',
+                registrationProvider.registration.city.isNotEmpty
+                    ? registrationProvider.registration.city
+                    : 'Não informado',
+              ),
+              _buildInfoTile(
+                'UF',
+                registrationProvider.registration.uf.isNotEmpty
+                    ? registrationProvider.registration.uf
                     : 'Não informado',
               ),
               _buildInfoTile(
@@ -111,30 +153,6 @@ class ProfilePage extends StatelessWidget {
 
               const SizedBox(height: 32),
 
-              // Botão de redirecionamento para planos
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, '/plans');
-                },
-                child: Container(
-                  width: double.infinity,
-                  padding: const EdgeInsets.all(20),
-                  decoration: BoxDecoration(
-                    color: darkGreen,
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: const Center(
-                    child: Text(
-                      'Meus Planos',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
             ],
           ),
         ),
